@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueActivator : MonoBehaviour, IInteractable
 {
     public ID id;
     [SerializeField] private DialogueData dialogueData;
     public PlayerDialogueActivator playerActivator;
+    [SerializeField] private UnityEvent onInteract;
     
     public void UpdateDialogueObject(DialogueData dialogueData)
     {
@@ -40,6 +42,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         if (playerActivator)
         {
             playerActivator.interactable = this;
+            onInteract.Invoke();
         }
     }
     

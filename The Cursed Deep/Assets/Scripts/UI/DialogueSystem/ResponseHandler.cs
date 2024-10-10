@@ -40,7 +40,7 @@ public class ResponseHandler : MonoBehaviour
             
          GameObject responseButton = Instantiate(responseButtonTemplate.gameObject, responseContainer);
          responseButton.gameObject.SetActive(true);
-         responseButton.GetComponent<TMP_Text>().text = response.ResponseText;
+         responseButton.GetComponentInChildren<TMP_Text>().text = response.ResponseText;
          responseButton.GetComponent<Button>().onClick.AddListener(() => OnPickedResponse(response, responseIndex));
          tempResponseButtons.Add(responseButton);
 

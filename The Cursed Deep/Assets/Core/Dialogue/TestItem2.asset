@@ -17,7 +17,7 @@ MonoBehaviour:
 
     $5000 Dabloons'
   responses:
-  - responseText: 
-    dialogueData: {fileID: 0}
   - responseText: Buy
     dialogueData: {fileID: 11400000, guid: 07e34aceeaa23c843ab83403070d844d, type: 2}
+  - responseText: No
+    dialogueData: {fileID: 11400000, guid: 103dcf792bb928044bff2babc3295100, type: 2}
