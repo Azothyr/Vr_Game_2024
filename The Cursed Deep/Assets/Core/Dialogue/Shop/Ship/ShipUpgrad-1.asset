@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3404fe7997435ef48bb669bf40f2f0b2, type: 3}
   m_Name: ShipUpgrad-1
   m_EditorClassIdentifier: 
+  dialogueName: 
+  action: {fileID: 11400000, guid: 5b9cdc6768dcfe74a88d1d48b5601a5a, type: 2}
   dialogue:
   - 'Upgrade your ship?
 
@@ -21,3 +23,18 @@ MonoBehaviour:
     dialogueData: {fileID: 11400000, guid: 07e34aceeaa23c843ab83403070d844d, type: 2}
   - responseText: Exit
     dialogueData: {fileID: 0}
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 64d2a065675ec06459afe88e7946aa47, type: 2}
+        m_TargetAssemblyTypeName: Debugger, Assembly-CSharp
+        m_MethodName: OnDebug
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Upgrading ship
+          m_BoolArgument: 0
+        m_CallState: 2

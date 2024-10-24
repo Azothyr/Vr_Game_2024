@@ -1,9 +1,11 @@
+using UI.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DialogueActivator : MonoBehaviour, IInteractable
 {
     public ID id;
+    [SerializeField] private GameAction action;
     [SerializeField] private DialogueData dialogueData;
     public PlayerDialogueActivator playerActivator;
     [SerializeField] private UnityEvent onInteract;
@@ -19,6 +21,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         {
             if (other.TryGetComponent(out PlayerDialogueActivator player))
             {
+                
                 player.interactable = this;
             }
         }
@@ -31,7 +34,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
             if (other.TryGetComponent(out PlayerDialogueActivator player))
             {
                 player.dialogueUI.typewriterEffect.Stop();
-                player.dialogueUI.CloseDialogueBox();
+                player.dialogueUI.CloseDialogueBox(dialogueData);
                 player.interactable = null;
             }
         }
@@ -41,6 +44,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
     {
         if (playerActivator)
         {
+            
             playerActivator.interactable = this;
             onInteract.Invoke();
         }
@@ -49,8 +53,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable
     public void OffTrigger()
     {
         if (!playerActivator) return;
-        //playerActivator.dialogueUI.typewriterEffect.Stop();
-        //playerActivator.dialogueUI.CloseDialogueBox();
         playerActivator.interactable = null;
     }
 
@@ -65,5 +67,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable
             }
         }
         player.dialogueUI.ShowDialogue(dialogueData);
+        dialogueData.DialogueEvent(action);
     }
 }

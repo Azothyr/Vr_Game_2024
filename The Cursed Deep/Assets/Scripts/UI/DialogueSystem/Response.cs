@@ -1,3 +1,4 @@
+using UI.DialogueSystem;
 using UnityEngine;
 
 [System.Serializable]

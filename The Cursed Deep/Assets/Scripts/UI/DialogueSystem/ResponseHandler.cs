@@ -74,7 +74,7 @@ public class ResponseHandler : MonoBehaviour
       }
       else
       {
-         dialogueUI.CloseDialogueBox();
+         dialogueUI.CloseDialogueBox(response.DialogueData);
       }
    }
 }
